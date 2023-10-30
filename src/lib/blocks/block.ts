@@ -12,18 +12,14 @@ export class Block {
   public active: boolean;
 
   public constructor(
-    //type: BlockType,
     shape: BlockShape,
+    positon: GridPosition,
     orientation: Orientation = Orientation.ZERO
   ) {
     this.id = randomId();
-    //this.type = type;
     this.orientation = orientation;
     this.shape = shape;
-    this.position = {
-      row: 0,
-      column: 10,
-    };
+    this.position = positon;
   }
 
   public rotate(): void {

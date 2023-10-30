@@ -6,8 +6,8 @@ export const BlockShapes: { [type: string]: BlockShape } = {
     color: "purple",
     boxes: {
       ZERO: [
-        [false, true, false],
         [true, true, true],
+        [false, true, false],
       ],
       NINETY: [
         [true, false],
@@ -47,18 +47,18 @@ export const BlockShapes: { [type: string]: BlockShape } = {
       ],
     },
   },
-  L_LEFT: {
+  L_RIGHT: {
     name: "L_LEFT",
     color: "blue",
     boxes: {
       ZERO: [
+        [true, true, true],
+        [true, false, false],
+      ],
+      NINETY: [
         [true, false],
         [true, false],
         [true, true],
-      ],
-      NINETY: [
-        [true, true, true],
-        [true, false, false],
       ],
       ONE_EIGHTY: [
         [true, true],
@@ -71,18 +71,18 @@ export const BlockShapes: { [type: string]: BlockShape } = {
       ],
     },
   },
-  L_RIGHT: {
+  L_LEFT: {
     name: "L_RIGHT",
     color: "orange",
     boxes: {
       ZERO: [
+        [true, true, true],
+        [false, false, true],
+      ],
+      NINETY: [
         [false, true],
         [false, true],
         [true, true],
-      ],
-      NINETY: [
-        [true, false, false],
-        [true, true, true],
       ],
       ONE_EIGHTY: [
         [true, true],
@@ -90,8 +90,8 @@ export const BlockShapes: { [type: string]: BlockShape } = {
         [true, false],
       ],
       TWO_SEVENTY: [
+        [true, false, false],
         [true, true, true],
-        [false, false, true],
       ],
     },
   },
