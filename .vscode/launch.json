@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "debug: cli.ts",
+      "name": "cli.ts: debug",
       "type": "node",
       "request": "launch",
       "program": "./node_modules/.bin/ts-node",
