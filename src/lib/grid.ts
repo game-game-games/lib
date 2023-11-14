@@ -52,12 +52,10 @@ export class Grid {
 
       for (let i = 0; i < block.shape.boxes[block.orientation].length; i++) {
         //loop each block in each collumn of each row of the block
-        for (
-          let j = 0;
-          j < block.shape.boxes[block.orientation][i].length;
-          j++
-        ) {
+        for (let j = 0; j < block.shape.boxes[block.orientation][i].length; j++) {
+          //Change the grid boxes to match the bock's boxes
           this.grid[i][j] = block;
+          //if the blocks box is false then assign it to null inside the grid
           if (this.grid[i][j].shape.boxes[block.orientation][i][j] == false) {
             this.grid[i][j] = null;
           }
@@ -68,9 +66,7 @@ export class Grid {
       console.log("foo");
       return true;
     } else {
-      console.log(
-        `${new Date()} - failed placing block ${JSON.stringify(block)}`
-      );
+      console.log(`${new Date()} - failed placing block ${JSON.stringify(block)}`);
       return false;
     }
   }

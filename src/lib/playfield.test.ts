@@ -1,5 +1,6 @@
 import { Block } from "./blocks/block";
 import { BlockShapes } from "./blocks/shapes";
+import { Grid } from "./grid";
 import { Playfield } from "./playfield";
 
 describe("playfield", () => {
@@ -12,7 +13,10 @@ describe("playfield", () => {
   });
 
   it("add initial blocks", () => {
-    const block1 = new Block(BlockShapes.T);
+    const block1 = new Block(BlockShapes.T, {
+      row: 0,
+      column: playfield.getCenter(),
+    });
     expect(block1.shape.name).toEqual(BlockShapes.T.name);
     playfield.addBlock(block1);
 

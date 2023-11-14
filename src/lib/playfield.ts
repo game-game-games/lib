@@ -15,16 +15,12 @@ export class Playfield {
   public constructor() {
     this.grid = new Grid(16, 10);
     for (let i = 1; i <= 5; i++) {
-      this.addBlock(
-        new Block(getRandomBlockShape(), { row: 0, column: this.getCenter() })
-      );
+      this.addBlock(new Block(getRandomBlockShape(), { row: 0, column: this.getCenter() }));
     }
     this.start();
   }
   public addBlock(block: Block): void {
-    console.log(
-      `${new Date()} - Queuing new block ${JSON.stringify(this.activeBlock)}`
-    );
+    console.log(`${new Date()} - Queuing new block ${JSON.stringify(this.activeBlock)}`);
 
     this.queue.push(block);
   }
@@ -43,9 +39,7 @@ export class Playfield {
     //
     if (this.queue.length > 0 && !this.busy) {
       this.transition(this.queue.shift());
-      this.queue.push(
-        new Block(getRandomBlockShape(), { row: 0, column: this.getCenter() })
-      );
+      this.queue.push(new Block(getRandomBlockShape(), { row: 0, column: this.getCenter() }));
     } else {
       if (this.busy) {
         // console.log(`${new Date()} - We're busy..`);
@@ -85,16 +79,12 @@ export class Playfield {
     if (this.activeBlock.position.row + 1 === this.grid.grid.length) {
       this.busy = false;
       clearInterval(this.blockInterval);
-      console.log(
-        `${new Date()} - Block #${this.activeBlock.id} reached bottom`
-      );
+      console.log(`${new Date()} - Block #${this.activeBlock.id} reached bottom`);
     } else {
       this.activeBlock.position.row++;
       if (this.grid.place(this.activeBlock)) {
         clearInterval(this.blockInterval);
-        this.addBlock(
-          new Block(getRandomBlockShape(), { row: 0, column: this.getCenter() })
-        );
+        this.addBlock(new Block(getRandomBlockShape(), { row: 0, column: this.getCenter() }));
         this.blocks.push(this.activeBlock);
         this.busy = false;
       }

@@ -11,11 +11,7 @@ export class Block {
   public shape: BlockShape;
   public active: boolean;
 
-  public constructor(
-    shape: BlockShape,
-    positon: GridPosition,
-    orientation: Orientation = Orientation.ZERO
-  ) {
+  public constructor(shape: BlockShape, positon: GridPosition, orientation: Orientation = Orientation.ZERO) {
     this.id = randomId();
     this.orientation = orientation;
     this.shape = shape;
