@@ -24,7 +24,7 @@ export class Grid {
   }
   //Checks if the targeted spot in the grid is empty, and removes previous block if it exists, then places the block in the grid.
   public place(block: Block): boolean {
-    // if the current position of the block in its own grid is avaible in the actual grid
+    // if the current pos ition of the block in its own grid is avaible in the actual grid
     if (!this.collides(block)) {
       console.log(`${new Date()} - Placing block ${JSON.stringify(block)}`);
 

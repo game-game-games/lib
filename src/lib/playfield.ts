@@ -1,4 +1,6 @@
 import { Block } from "./blocks/block";
+import { Orientation } from "./blocks/orientation";
+import { Direction } from "./direction";
 import { GridPosition } from "./gird-position";
 import { Grid } from "./grid";
 import { getRandomBlockShape } from "./util";
@@ -29,7 +31,7 @@ export class Playfield {
     return Math.floor(this.grid.grid[0].length / 2);
   }
 
-  public position(pos: GridPosition): void {}
+  // public position(pos: GridPosition): void {}
 
   public render(): void {
     //
@@ -93,7 +95,28 @@ export class Playfield {
 
   public softDrop(): void {}
 
+  public rotate(direction: Direction): Block {
+    const orientations = Object.values(Orientation);
+    const currentIndex = orientations.indexOf(this.activeBlock.orientation);
+    if (direction == Direction.RIGHT) {
+      if (currentIndex == orientations.length) {
+        this.activeBlock.orientation = orientations[0];
+      } else {
+        this.activeBlock.orientation = orientations[currentIndex + 1];
+      }
+    }else{
+      if (currentIndex == 0) {
+        this.activeBlock.orientation = orientations[orientations.length-1];
+      } else {
+        this.activeBlock.orientation = orientations[currentIndex - 1];
+      }
+    }
+
+    return this.activeBlock;
+  }
+
   public start(): void {
+    this.render();
     this.eventLoop = setInterval(() => {
       this.render();
     }, 500);
